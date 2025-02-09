@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 double maxAverageRatio(int** classes, int classesSize, int* classesColSize, int extraStudents) {
     int counter_students = 0, indice;
     float rates[classesSize], difference, average_pass_ratio = 0, max_diff;
