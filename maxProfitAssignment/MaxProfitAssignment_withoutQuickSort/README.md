@@ -43,14 +43,3 @@ The `main` function handles user input and displays the result:
    
 - **Freeing Allocated Memory**: 
    - After processing, `free()` is used to release the memory.
-
-### License
-
-This project is open-source and available under the MIT License.
-
-### Potential Improvements
-
-- **Sorting**: Sorting jobs and workers first could improve the time complexity.
-- **Edge Case Handling**: Handle scenarios like no worker being able to perform any job.
-- **Error Checking**: Add input validation for incorrect values.
-
