@@ -2,15 +2,27 @@
 #include <stdlib.h>
 
 /* Function to calculate the maximum profit */
-int MaxProfitAssignment(const int* difficulty, int difficulty_size, const int* profit, int profit_size, const int* worker, int worker_size) {
-    int profit_r[worker_size];
-    int sum = 0;
+int maxProfitAssignment(int* difficulty, int difficultySize, int* profit, int profitSize, int* worker, int workerSize) {
+    int profit_r[profitSize];
+    int sum = 0, min = 10000000;
 
-    for (int i = 0; i < worker_size; i++) {
+    for (int i = 0; i < difficultySize; i++) {
+        if (difficulty[i] < min)
+            min = difficulty[i];
+    }
+
+    for (int i = 0; i < workerSize; i++) {
         profit_r[i] = 0;
-        for (int j = 0; j < difficulty_size; j++) {
-            if (worker[i] >= difficulty[j] && profit_r[i] < profit[j]) {
-                profit_r[i] = profit[j];
+        for (int j = 0; j < difficultySize; j++) {
+            if (worker[i] >= min) {
+                if (profit_r[i] < profit[j]) {
+                    if (worker[i] >= difficulty[j]) {
+                        profit_r[i] = profit[j];
+                    }
+                }
+            }
+            else {
+                profit_r[i] = 0;
             }
         }
         sum += profit_r[i];
@@ -47,7 +59,7 @@ int main() {
     }
     
     /* Calculate the maximum profit */
-    int max_profit = MaxProfitAssignment(difficulty, difficulty_size, profit, difficulty_size, worker, worker_size);
+    int max_profit = maxProfitAssignment(difficulty, difficulty_size, profit, difficulty_size, worker, worker_size);
 
     printf("Maximum Profit: %d\n", max_profit);
     
