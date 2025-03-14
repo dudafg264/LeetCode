@@ -54,5 +54,3 @@ This project is open-source and available under the MIT License.
 - **Edge Case Handling**: Handle scenarios like no worker being able to perform any job.
 - **Error Checking**: Add input validation for incorrect values.
 
----
-This provides a concise overview of how the program works and its features.
